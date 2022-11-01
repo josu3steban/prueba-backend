@@ -21,14 +21,16 @@ router.get('/:id', [
 
 router.post('/', [
    check('nombre', 'El nombre del producto es necesario').notEmpty(),
+   check('stock', 'El stock es inválido').isNumeric(),
    validarCampos
 ], createProducto);
 
 
 router.put('/:id', [
    check('id', 'El id no es válido').isMongoId(),
+   check('nombre', 'El nombre del producto es necesario').notEmpty(),
+   check('stock', 'El stock es inválido').isNumeric(),
    check('id').custom( existeProducto ),
-   validarCampos
 ], updateProducto);
 
 

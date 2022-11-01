@@ -33,9 +33,11 @@ const getProductoPorId = async( req, res = response ) => {
 
    const { id } = req.params;
 
+   console.log(id);
+
    try {
 
-      const producto = Producto.findById( id );
+      const producto = await Producto.findById( id );
 
       res.json({
          ok: true,
